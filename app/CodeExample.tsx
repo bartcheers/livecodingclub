@@ -4,19 +4,19 @@ function CodeComponent() {
   return (
     <pre className="text-white bg-gray-800 p-4 rounded-md overflow-x-auto">
       <code>
-        <span className="text-blue-500">import</span> {'\'./globals.css\''}
+        <span className="text-blue-500">import</span> {'&apos;./globals.css&apos;'}
         <br />
-        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {'\'next/font/google\''}
+        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {'&apos;next/font/google&apos;'}
         <br />
         <br />
-        <span className="text-blue-500">const</span> inter = Inter(<span className="text-red-500">{'{ subsets: [\'latin\'] }'}</span>)
+        <span className="text-blue-500">const</span> inter = Inter(<span className="text-red-500">{'{ subsets: [&apos;latin&apos;] }'}</span>)
         <br />
         <br />
         <span className="text-blue-500">export const</span> metadata = <span className="text-red-500">{'{'}</span>
         <br />
-        &nbsp;&nbsp;title: {'\'Live Coding Club\''},
+        &nbsp;&nbsp;title: {'&apos;Live Coding Club&apos;'},
         <br />
-        &nbsp;&nbsp;description: {'\'Learn from letting others watch you code.\''},
+        &nbsp;&nbsp;description: {'&apos;Learn from letting others watch you code.&apos;'},
         <br />
         <span className="text-red-500">{'}'}</span>
         <br />
@@ -33,7 +33,7 @@ function CodeComponent() {
         <br />
         &nbsp;&nbsp;<span className="text-blue-500">return</span> (
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;html lang="en"&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;html lang=&quot;en&quot;&gt;
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body className=<span className="text-red-500">{'{inter.className}'}</span>&gt;<span className="text-red-500">{'{children}'}</span>&lt;/body&gt;
         <br />
