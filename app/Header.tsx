@@ -1,6 +1,8 @@
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { CodeExample } from './CodeExample'
 import { CommandLine } from './assets/svg/CommandLine'
+import Bart from './assets/img/bart.png'
+import Image from 'next/image'
 
 export function Header() {
   return (
@@ -74,8 +76,9 @@ export function Header() {
           </div>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
-          <div className="max-w-3xl flex flex-col justify-center sm:max-w-5xl lg:max-w-none">
+          <div className="relative max-w-3xl flex flex-col justify-center sm:max-w-5xl lg:max-w-none">
             <CodeExample />
+            <Image className='absolute left-2 top-2 w-40 rounded-xl rounded-bl-none border-2 border-white shadow-xl' src={Bart} alt="Bart" />
           </div>
         </div>
       </div>
