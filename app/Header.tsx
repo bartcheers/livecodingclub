@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { CodeExample } from './CodeExample'
+import { CommandLine } from './assets/svg/CommandLine'
 
 export function Header() {
   return (
@@ -42,12 +43,8 @@ export function Header() {
       </div>
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
-          <img
-            className="h-11"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-            alt="Your Company"
-          />
-          <div className="mt-24 sm:mt-32 lg:mt-16">
+          <CommandLine />
+          <div className="mt-12">
             <a href="#" className="inline-flex space-x-6">
               <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
                 What&apos;s new
@@ -59,11 +56,10 @@ export function Header() {
             </a>
           </div>
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Deploy to the cloud with confidence
+            Live Coding Club
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-            fugiat veniam occaecat fugiat aliqua.
+            A new way to practice skills and help others learn.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
