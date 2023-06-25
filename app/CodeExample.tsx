@@ -4,19 +4,19 @@ function CodeComponent() {
   return (
     <pre className="text-white bg-gray-800 p-4 rounded-md overflow-x-auto">
       <code>
-        <span className="text-blue-500">import</span> {'&apos;./globals.css&apos;'}
+        <span className="text-blue-500">import</span> {"'./globals.css'"}
         <br />
-        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {'&apos;next/font/google&apos;'}
+        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {"'next/font/google'"}
         <br />
         <br />
-        <span className="text-blue-500">const</span> inter = Inter(<span className="text-red-500">{'{ subsets: [&apos;latin&apos;] }'}</span>)
+        <span className="text-blue-500">const</span> inter = Inter(<span className="text-red-500">{"{ subsets: ['latin'] }"}</span>)
         <br />
         <br />
         <span className="text-blue-500">export const</span> metadata = <span className="text-red-500">{'{'}</span>
         <br />
-        &nbsp;&nbsp;title: {'&apos;Live Coding Club&apos;'},
+        &nbsp;&nbsp;title: {'Live Coding Club'},
         <br />
-        &nbsp;&nbsp;description: {'&apos;Learn from letting others watch you code.&apos;'},
+        &nbsp;&nbsp;description: {'Learn from letting others watch you code.'},
         <br />
         <span className="text-red-500">{'}'}</span>
         <br />
