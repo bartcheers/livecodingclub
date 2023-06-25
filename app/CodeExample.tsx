@@ -1,10 +1,12 @@
+import React from 'react';
+
 function CodeComponent() {
   return (
     <pre className="text-white bg-gray-800 p-4 rounded-md overflow-x-auto">
       <code>
-        <span className="text-blue-500">import</span> './globals.css'
+        <span className="text-blue-500">import</span> {'\'./globals.css\''}
         <br />
-        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> 'next/font/google'
+        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {'\'next/font/google\''}
         <br />
         <br />
         <span className="text-blue-500">const</span> inter = Inter(<span className="text-red-500">{'{ subsets: [\'latin\'] }'}</span>)
@@ -12,9 +14,9 @@ function CodeComponent() {
         <br />
         <span className="text-blue-500">export const</span> metadata = <span className="text-red-500">{'{'}</span>
         <br />
-        &nbsp;&nbsp;title: 'Live Coding Club',
+        &nbsp;&nbsp;title: {'\'Live Coding Club\''},
         <br />
-        &nbsp;&nbsp;description: 'Learn from letting others watch you code.',
+        &nbsp;&nbsp;description: {'\'Learn from letting others watch you code.\''},
         <br />
         <span className="text-red-500">{'}'}</span>
         <br />
@@ -45,9 +47,7 @@ function CodeComponent() {
   );
 }
 
-
 export const CodeExample = () => {
-  // TODO: Add images so it looks like a live zoom call
   return (
     <div className="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
       <div className="shadow-lg md:rounded-3xl">
@@ -78,5 +78,5 @@ export const CodeExample = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
