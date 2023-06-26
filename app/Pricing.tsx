@@ -8,10 +8,11 @@ const tiers = [
     href: '#',
     price: '$9',
     description: 'Full access to unlimited 1-on-1 calls.',
-    features: ['Unlimited 1-on-1 calls',
+    features: [
       'Meet with up to 10 people a month',
       'Learn pressure-free',
-      'Get matched with a new dev every week'
+      'Get matched with a new dev every week',
+      '30 day money-back guarantee',
     ],
     mostPopular: false,
     frequency: 'monthly',
@@ -23,10 +24,7 @@ const tiers = [
     price: '$90',
     description: 'Save by choosing an annual plan.',
     features: [
-      'Unlimited 1-on-1 calls',
-      'Meet with up to 10 people a month',
-      'Learn pressure-free',
-      'Get matched with a new dev every week',
+      'All perks of the montly plan',
       'Save 2 months by paying annually'
     ],
     mostPopular: false,
@@ -39,10 +37,7 @@ const tiers = [
     price: '$19',
     description: 'Life-time access for early adopters.',
     features: [
-      'Unlimited 1-on-1 calls',
-      'Meet with up to 10 people a month',
-      'Learn pressure-free',
-      'Get matched with a new dev every week',
+      'All perks of the monthly plan',
       'Get in early for the price of 3 coffees'
     ],
     mostPopular: true,
@@ -78,7 +73,7 @@ export function Pricing() {
                 </h3>
                 {tier.mostPopular ? (
                   <p className="rounded-full bg-indigo-500 px-2.5 py-1 text-xs font-semibold leading-5 text-white">
-                    Limited Availability
+                    Temporary offer
                   </p>
                 ) : null}
               </div>
