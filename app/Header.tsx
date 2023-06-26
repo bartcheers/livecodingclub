@@ -61,7 +61,7 @@ export function Header() {
             Live Coding Club
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Get better at live-coding in a low-pressure environment. Get tips and tricks from a stranger in a 1-on-1 call, while you work on a task of your choice.
+            Get better at live coding in a low-pressure environment. Get tips and tricks from a stranger in a 1-on-1 call, while you work on a task of your choice.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
