@@ -6,26 +6,26 @@ function CodeComponent() {
       <code>
         <span className="text-blue-500">import</span> {"'./globals.css'"}
         <br />
-        <span className="text-blue-500">import</span> <span className="text-red-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {"'next/font/google'"}
+        <span className="text-blue-500">import</span> <span className="text-teal-500">{'{ Inter }'}</span> <span className="text-blue-500">from</span> {"'next/font/google'"}
         <br />
         <br />
-        <span className="text-blue-500">const</span> inter = Inter(<span className="text-red-500">{"{ subsets: ['latin'] }"}</span>)
+        <span className="text-blue-500">const</span> inter = Inter(<span className="text-teal-500">{"{ subsets: ['latin'] }"}</span>)
         <br />
         <br />
-        <span className="text-blue-500">export const</span> metadata = <span className="text-red-500">{'{'}</span>
+        <span className="text-blue-500">export const</span> metadata = <span className="text-teal-500">{'{'}</span>
         <br />
         &nbsp;&nbsp;title: {'Live Coding Club'},
         <br />
         &nbsp;&nbsp;description: {'Learn from letting others watch you code.'},
         <br />
-        <span className="text-red-500">{'}'}</span>
+        <span className="text-teal-500">{'}'}</span>
         <br />
         <br />
         <span className="text-blue-500">export default function</span> RootLayout(
         <br />
         &nbsp;&nbsp;children,
         <br />
-        <span className="text-blue-500">):</span> <span className="text-red-500">{'{'}</span>
+        <span className="text-blue-500">):</span> <span className="text-teal-500">{'{'}</span>
         <br />
         &nbsp;&nbsp;children: React.ReactNode
         <br />
@@ -35,7 +35,7 @@ function CodeComponent() {
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;html lang=&quot;en&quot;&gt;
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body className=<span className="text-red-500">{'{inter.className}'}</span>&gt;<span className="text-red-500">{'{children}'}</span>&lt;/body&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body className=<span className="text-teal-500">{'{inter.className}'}</span>&gt;<span className="text-teal-500">{'{children}'}</span>&lt;/body&gt;
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;/html&gt;
         <br />

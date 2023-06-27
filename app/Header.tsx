@@ -47,17 +47,6 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
           <CommandLine />
-          <div className="mt-12">
-            <a href="#" className="inline-flex space-x-6">
-              <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
-                What&apos;s new
-              </span>
-              <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
-                <span>Just shipped v1.0</span>
-                <ChevronRightIcon className="h-5 w-5 text-gray-500" aria-hidden="true" />
-              </span>
-            </a>
-          </div>
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Live Coding Club
           </h1>
