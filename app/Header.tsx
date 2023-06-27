@@ -3,6 +3,7 @@ import { CodeExample } from './CodeExample'
 import { CommandLine } from './assets/svg/CommandLine'
 import Bart from './assets/img/bart.png'
 import Image from 'next/image'
+import { Login } from './login'
 
 export function Header() {
   return (
@@ -63,17 +64,9 @@ export function Header() {
           <p className="mt-6 text-lg leading-8 text-gray-300">
             Get better at live coding in a low-pressure environment. Get tips and tricks from a stranger in a 1-on-1 call, while you work on a task of your choice.
           </p>
-          <div className="mt-10 flex items-center gap-x-6">
-            <a
-              href="#"
-              className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-            >
-              Get started
-            </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
-          </div>
+
+
+          <Login />
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="relative max-w-3xl flex flex-col justify-center sm:max-w-5xl lg:max-w-none">
@@ -82,6 +75,6 @@ export function Header() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
