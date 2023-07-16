@@ -15,17 +15,17 @@ export async function updateUser({
   id,
   name,
   email,
-  image,
+  location,
 }: {
   id: string;
   name: string;
   email: string | null;
-  image: string | null;
+  location: string | null;
 }) {
   try {
     const profile = await prisma.user.update({
       where: { id },
-      data: { name, email, image },
+      data: { name, email, location },
     });
     return { profile };
   } catch (error) {

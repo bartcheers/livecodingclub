@@ -7,14 +7,14 @@ export async function updateUserAction({
   id,
   name,
   email,
-  image,
+  location,
 }: {
   id: string;
   name: string;
   email: string | null;
-  image: string | null;
+  location: string;
 }) {
-  await updateUser({ id, name, email, image });
+  await updateUser({ id, name, email, location });
   revalidatePath('/');
-  return { id, name, email, image };
+  return { id, name, email, location };
 }

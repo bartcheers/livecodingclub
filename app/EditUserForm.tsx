@@ -13,22 +13,64 @@ const EditUserForm = async () => {
   const { user } = await getUser({ id: session?.user.id });
   if (!user) return null;
 
-  const { name, email, image } = user;
-  console.log({ user });
+  const { name, email, location } = user;
 
   const handleSubmit = async (data: FormData) => {
     'use server';
 
     const newName = data.get('name');
-    if (!newName || typeof newName !== 'string') return;
+    const newEmail = data.get('email');
+    const newLocation = data.get('location');
 
-    await updateUserAction({ id: user.id, name: newName, email, image });
+    if (!newName || typeof newName !== 'string') return;
+    if (!newEmail || typeof newEmail !== 'string') return;
+    if (!newLocation || typeof newLocation !== 'string') return;
+
+    await updateUserAction({ id: user.id, name: newName, email: newEmail, location: newLocation });
   };
 
   return (
-    <form action={handleSubmit}>
-      <input type='text' name='name' defaultValue={name || undefined} className='text-black' />
-      <button type='submit'>Save</button>
+    <form action={handleSubmit} className='w-full max-w-sm mx-auto mt-20 space-y-8'>
+      <div>
+        <label className='block mb-2 text-sm font-bold text-gray-700' htmlFor='name'>
+          Name
+        </label>
+        <input
+          type='text'
+          name='name'
+          defaultValue={name || undefined}
+          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+        />
+      </div>
+      <div>
+        <label className='block mb-2 text-sm font-bold text-gray-700' htmlFor='email'>
+          Email
+        </label>
+        <input
+          type='email'
+          name='email'
+          defaultValue={email || undefined}
+          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+        />
+      </div>
+      <div>
+        <label className='block mb-2 text-sm font-bold text-gray-700' htmlFor='location'>
+          Location
+        </label>
+        <input
+          type='text'
+          name='location'
+          defaultValue={location || undefined}
+          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+        />
+      </div>
+      <div>
+        <button
+          type='submit'
+          className='w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700'>
+          Save
+        </button>
+      </div>
     </form>
   );
 };
