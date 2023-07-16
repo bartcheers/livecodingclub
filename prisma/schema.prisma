@@ -1,15 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/d/migrate-shadow
 }
 
 generator client {
   provider        = "prisma-client-js"
-  // previewFeatures = ["referentialActions"] // You won't need this in Prisma 3.X or higher.
 }
 
 model Account {
@@ -25,8 +20,7 @@ model Account {
   scope              String?
   id_token           String?  @db.Text
   session_state      String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user               User @relation(fields: [userId], references: [id])
 
   @@unique([provider, providerAccountId])
 }
@@ -36,17 +30,23 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id                    String    @id @default(cuid())
+  name                  String?
+  email                 String?   @unique
+  emailVerified         DateTime?
+  image                 String?
+  location              String?
+  accounts              Account[]
+  sessions              Session[]
+  userSkills            UserSkill[]
+  initiatedConversations Conversation[] @relation("InitiatedConversations")
+  receivedConversations  Conversation[] @relation("ReceivedConversations")
+  sentMessages           Message[]      @relation("MessageSender")
+  receivedMessages       Message[]      @relation("MessageReceiver")
 }
 
 model VerificationToken {
@@ -55,4 +55,40 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Skill {
+  id         String     @id @default(cuid())
+  name       String
+  userSkills UserSkill[]
+}
+
+model UserSkill {
+  userId String
+  skillId String
+  user   User @relation(fields: [userId], references: [id])
+  skill  Skill @relation(fields: [skillId], references: [id])
+
+  @@id([userId, skillId])
+}
+
+model Message {
+  id          String   @id @default(cuid())
+  content     String
+  sentAt      DateTime @default(now())
+  senderId    String
+  receiverId  String
+  sender      User     @relation("MessageSender", fields: [senderId], references: [id])
+  receiver    User     @relation("MessageReceiver", fields: [receiverId], references: [id])
+  conversation Conversation @relation(fields: [conversationId], references: [id])
+  conversationId String
+}
+
+model Conversation {
+  id           String   @id @default(cuid())
+  user1Id      String
+  user2Id      String
+  user1        User     @relation("InitiatedConversations", fields: [user1Id], references: [id])
+  user2        User     @relation("ReceivedConversations", fields: [user2Id], references: [id])
+  messages     Message[]
 }
