@@ -1,6 +1,8 @@
 'use server';
 
+import { UpdateStatus } from '@prisma/client';
 import { updateUser } from '@/lib/prisma/users';
+import { createPost, updatePost, deletePost } from '@/lib/prisma/posts';
 import { revalidatePath } from 'next/cache';
 
 export async function updateUserAction({
@@ -17,4 +19,38 @@ export async function updateUserAction({
   await updateUser({ id, name, email, location });
   revalidatePath('/');
   return { id, name, email, location };
+}
+
+export async function createPostAction({
+  content,
+  status,
+  userId,
+}: {
+  status: UpdateStatus;
+  content: string;
+  userId: string;
+}) {
+  const newPost = await createPost({ status, content, userId });
+  revalidatePath('/');
+  return newPost;
+}
+
+export async function updatePostAction({
+  id,
+  status,
+  content,
+}: {
+  id: string;
+  status: UpdateStatus;
+  content: string;
+}) {
+  const updatedPost = await updatePost({ id, content, status });
+  revalidatePath('/');
+  return updatedPost;
+}
+
+export async function deletePostAction(id: string) {
+  await deletePost(id);
+  revalidatePath('/');
+  return { id };
 }

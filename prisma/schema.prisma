@@ -43,6 +43,7 @@ model User {
   accounts              Account[]
   sessions              Session[]
   userSkills            UserSkill[]
+  posts                 Post[]
   initiatedConversations Conversation[] @relation("InitiatedConversations")
   receivedConversations  Conversation[] @relation("ReceivedConversations")
   sentMessages           Message[]      @relation("MessageSender")
@@ -91,4 +92,21 @@ model Conversation {
   user1        User     @relation("InitiatedConversations", fields: [user1Id], references: [id])
   user2        User     @relation("ReceivedConversations", fields: [user2Id], references: [id])
   messages     Message[]
+}
+
+enum UpdateStatus {
+  WORKING_ON
+  STUCK
+  CANCELLED
+  COMPLETED
+}
+
+model Post {
+  id          String       @id @default(cuid())
+  status      UpdateStatus
+  content String
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
