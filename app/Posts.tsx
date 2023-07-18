@@ -24,26 +24,24 @@ const getStatusBadgeText = (status: string) => {
 export const Posts = async () => {
   const session = await getServerSession(authOptions);
 
-  if (!session?.user.id) {
-    return null;
-  }
-
   const { posts } = await getAllPosts(20);
 
   return (
     <div className='text-white min-h-screen rounded-2xl p-4'>
-      <div className='flex w-full max-w-2xl mx-auto rounded-xl overflow-hidden mb-4 p-2  relative'>
-        {session.user.image && (
-          <Image
-            className='h-14 rounded-lg overflow-hidden object-cover sm:h-full w-14 aspect-square flex-shrink-0'
-            src={session.user.image}
-            alt='User avatar'
-            width={112}
-            height={112}
-          />
-        )}
-        <CreatePostButton />
-      </div>
+      {session?.user.id && (
+        <div className='flex w-full max-w-2xl mx-auto rounded-xl overflow-hidden mb-4 p-2  relative'>
+          {session?.user.image && (
+            <Image
+              className='h-14 rounded-lg overflow-hidden object-cover sm:h-full w-14 aspect-square flex-shrink-0'
+              src={session.user.image}
+              alt='User avatar'
+              width={112}
+              height={112}
+            />
+          )}
+          <CreatePostButton />
+        </div>
+      )}
 
       {posts?.map((post) => (
         <div
