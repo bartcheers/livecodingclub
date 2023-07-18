@@ -7,6 +7,7 @@ import { X, Menu as MenuIcon, GitPullRequest, User as UserIcon } from 'react-fea
 import Image from 'next/image';
 import { UserCircleIcon } from '@heroicons/react/20/solid';
 import type { User } from '@prisma/client';
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Live', href: '/', current: true },
@@ -29,9 +30,9 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                 <div className='border-b border-gray-700'>
                   <div className='flex h-16 items-center justify-between px-4 sm:px-0'>
                     <div className='flex items-center'>
-                      <div className='flex-shrink-0'>
+                      <Link href='/' className='flex-shrink-0'>
                         <GitPullRequest />
-                      </div>
+                      </Link>
                       <div className='hidden md:block'>
                         <div className='ml-10 flex items-baseline space-x-4'>
                           {navigation.map((item) => (
