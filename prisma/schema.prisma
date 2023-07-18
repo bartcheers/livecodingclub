@@ -104,7 +104,8 @@ enum UpdateStatus {
 model Post {
   id          String       @id @default(cuid())
   status      UpdateStatus
-  content String
+  content     String
+  link        String?
   userId      String
   user        User         @relation(fields: [userId], references: [id])
   createdAt   DateTime     @default(now())

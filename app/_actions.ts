@@ -26,12 +26,14 @@ export async function createPostAction({
   content,
   status,
   userId,
+  link,
 }: {
   status: UpdateStatus;
   content: string;
   userId: string;
+  link: string;
 }) {
-  await createPost({ status, content, userId });
+  await createPost({ status, content, userId, link });
   revalidatePath('/');
   redirect('/');
 }

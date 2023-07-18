@@ -68,7 +68,13 @@ export const Posts = async () => {
               </div>
             </div>
 
-            <h2 className='mt-1 text-md'>{post.content}</h2>
+            <a
+              href={post.link || '#'}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='mt-1 text-md hover:underline transition-all'>
+              {post.content}
+            </a>
           </div>
           <div className='absolute top-0 right-0 mr-2 flex items-center rounded-lg px-2 py-1 mt-2 text-sm'>
             <div

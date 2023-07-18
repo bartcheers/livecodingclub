@@ -5,21 +5,23 @@ export async function createPost({
   userId,
   status,
   content,
+  link,
 }: {
   userId: string;
   status: UpdateStatus;
   content: string;
+  link: string;
 }) {
   try {
-    console.log('before createpost', { userId, status, content });
     const post = await prisma.post.create({
       data: {
         userId,
         status,
         content,
+        link,
       },
     });
-    console.log({ post });
+
     return { post };
   } catch (error) {
     console.error({ error });

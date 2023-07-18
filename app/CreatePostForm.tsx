@@ -14,14 +14,17 @@ export const CreatePostForm = async () => {
     'use server';
 
     const content = data.get('content');
+    const link = data.get('link');
 
     // If content is not provided, stop the function.
     if (!content || typeof content !== 'string') return;
+    if (!link || typeof link !== 'string') return;
 
     await createPostAction({
       userId: session.user.id,
       status: 'WORKING_ON',
       content: content,
+      link: link,
     });
   };
 
@@ -36,6 +39,15 @@ export const CreatePostForm = async () => {
           className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
           required
           autoFocus
+        />
+
+        <label className='block mb-2 text-sm font-bold text-neutral-200' htmlFor='link'>
+          Video call link, eg Zoom, Google Meet, etc.
+        </label>
+        <input
+          name='link'
+          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+          required
         />
       </div>
       <CreatePostButton />
