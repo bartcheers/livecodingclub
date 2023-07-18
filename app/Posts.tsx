@@ -3,9 +3,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getAllPosts } from '@/lib/prisma/posts';
 import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
-import Link from 'next/link';
-import i from 'feather-icons';
-import { Edit3 } from 'react-feather';
+import { CreatePostButton } from './CreatePostButton';
 
 const getStatusBadgeText = (status: string) => {
   switch (status) {
@@ -43,12 +41,7 @@ export const Posts = async () => {
             height={112}
           />
         )}
-        <Link
-          href='/post'
-          className='group flex justify-center items-center flex-1 border border-neutral-700 rounded-lg ml-2 hover:bg-neutral-800 hover:border-neutral-800 transition-colors'>
-          <span>What are you working on?</span>
-          <Edit3 className='w-0 group-hover:flex group-hover:w-5 group-hover:ml-2 h-5 transition-all' />
-        </Link>
+        <CreatePostButton />
       </div>
 
       {posts?.map((post) => (

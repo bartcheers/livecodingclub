@@ -4,6 +4,7 @@ import { UpdateStatus } from '@prisma/client';
 import { updateUser } from '@/lib/prisma/users';
 import { createPost, updatePost, deletePost } from '@/lib/prisma/posts';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 export async function updateUserAction({
   id,
@@ -30,9 +31,9 @@ export async function createPostAction({
   content: string;
   userId: string;
 }) {
-  const newPost = await createPost({ status, content, userId });
+  await createPost({ status, content, userId });
   revalidatePath('/');
-  return newPost;
+  redirect('/');
 }
 
 export async function updatePostAction({

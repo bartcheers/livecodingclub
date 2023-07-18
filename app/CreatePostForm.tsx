@@ -1,7 +1,7 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
 import { createPostAction } from './_actions';
-import { CreatePostButton } from './CreatePostButton';
+import { CreatePostButton } from './post/CreatePostButton';
 
 export const CreatePostForm = async () => {
   const session = await getServerSession(authOptions);
@@ -35,6 +35,7 @@ export const CreatePostForm = async () => {
           name='content'
           className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
           required
+          autoFocus
         />
       </div>
       <CreatePostButton />
