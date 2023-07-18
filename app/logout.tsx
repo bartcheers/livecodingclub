@@ -1,14 +1,16 @@
-'use client'
+'use client';
 
-import { signOut, useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react';
 
-export const Logout = () => {
-  const session = useSession()
+export default function Logout() {
+  const session = useSession();
 
   return (
-    <div>
+    <div className='flex justify-center items-center w-full min-h-screen gap-2'>
       <div>{session?.data?.user?.name}</div>
-      <button onClick={() => signOut()}>Log out</button>
+      <button className='px-4 py-2 bg-neutral-400 rounded' onClick={() => signOut()}>
+        Log out
+      </button>
     </div>
-  )
+  );
 }

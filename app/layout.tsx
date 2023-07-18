@@ -3,8 +3,12 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import { authOptions } from '../pages/api/auth/[...nextauth]';
 import AuthProvider from './SessionProvider';
-import { Login } from './login';
-import { Logout } from './logout';
+import dynamic from 'next/dynamic';
+import LayoutHeader from './LayoutHeader';
+import { getUser } from '@/lib/prisma/users';
+
+const Login = dynamic(() => import('./Login'));
+const Logout = dynamic(() => import('./Logout'));
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,13 +19,15 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
-  console.log({ session, authOptions });
+  const { user } = await getUser({ id: session?.user.id });
 
   return (
     <html lang='en'>
-      <body className={`${inter.className} bg-neutral-900`}>
-        {children}
-        <AuthProvider session={session}>{!session ? <Login /> : <Logout />}</AuthProvider>
+      <body className={`${inter.className} bg-neutral-900 text-white`}>
+        <AuthProvider session={session}>
+          <LayoutHeader user={user} />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
