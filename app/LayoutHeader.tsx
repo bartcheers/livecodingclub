@@ -8,18 +8,22 @@ import Image from 'next/image';
 import { UserCircleIcon } from '@heroicons/react/20/solid';
 import type { User } from '@prisma/client';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 const navigation = [
   { name: 'Live', href: '/', current: true },
   { name: 'About', href: '/about', current: false },
 ];
-const userNavigation = [
+const authenticatedUserNavigation = [
   { name: 'Your Profile', href: '/profile' },
   { name: 'Settings', href: '/settings' },
   { name: 'Sign out', href: '/sign-out' },
 ];
 
+const unauthenticatedUserNavigation = [{ name: 'Sign in', href: '/sign-in' }];
+
 export default function LayoutHeader({ user }: { user?: User | null }) {
+  const { data: session } = useSession();
   return (
     <div className='min-h-full'>
       <div className='bg-neutral-900'>
@@ -35,20 +39,21 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                       </Link>
                       <div className='hidden md:block'>
                         <div className='ml-10 flex items-baseline space-x-4'>
-                          {navigation.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className={clsx(
-                                item.current
-                                  ? 'bg-gray-900 text-white'
-                                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                'rounded-md px-3 py-2 text-sm font-medium',
-                              )}
-                              aria-current={item.current ? 'page' : undefined}>
-                              {item.name}
-                            </a>
-                          ))}
+                          {session &&
+                            navigation.map((item) => (
+                              <a
+                                key={item.name}
+                                href={item.href}
+                                className={clsx(
+                                  item.current
+                                    ? 'bg-gray-900 text-white'
+                                    : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                  'rounded-md px-3 py-2 text-sm font-medium',
+                                )}
+                                aria-current={item.current ? 'page' : undefined}>
+                                {item.name}
+                              </a>
+                            ))}
                         </div>
                       </div>
                     </div>
@@ -81,7 +86,10 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                             leaveFrom='transform opacity-100 scale-100'
                             leaveTo='transform opacity-0 scale-95'>
                             <Menu.Items className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-                              {userNavigation.map((item) => (
+                              {(session
+                                ? authenticatedUserNavigation
+                                : unauthenticatedUserNavigation
+                              ).map((item) => (
                                 <Menu.Item key={item.name}>
                                   {({ active }) => (
                                     <a
@@ -158,15 +166,17 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                     </div>
                   </div>
                   <div className='mt-3 space-y-1 px-2'>
-                    {userNavigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as='a'
-                        href={item.href}
-                        className='block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white'>
-                        {item.name}
-                      </Disclosure.Button>
-                    ))}
+                    {(session ? authenticatedUserNavigation : unauthenticatedUserNavigation).map(
+                      (item) => (
+                        <Disclosure.Button
+                          key={item.name}
+                          as='a'
+                          href={item.href}
+                          className='block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white'>
+                          {item.name}
+                        </Disclosure.Button>
+                      ),
+                    )}
                   </div>
                 </div>
               </Disclosure.Panel>
