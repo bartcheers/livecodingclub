@@ -3,7 +3,7 @@ import { updateUserAction } from './_actions';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
-const EditUserForm = async () => {
+export default async function EditUserForm() {
   const session = await getServerSession(authOptions);
 
   if (!session?.user.id) {
@@ -32,7 +32,7 @@ const EditUserForm = async () => {
   return (
     <form action={handleSubmit} className='w-full max-w-sm mx-auto mt-20 space-y-8'>
       <div>
-        <label className='block mb-2 text-sm font-bold text-gray-700' htmlFor='name'>
+        <label className='block mb-2 text-sm font-bold text-neutral-300' htmlFor='name'>
           Name
         </label>
         <input
@@ -43,7 +43,7 @@ const EditUserForm = async () => {
         />
       </div>
       <div>
-        <label className='block mb-2 text-sm font-bold text-gray-700' htmlFor='email'>
+        <label className='block mb-2 text-sm font-bold text-neutral-300' htmlFor='email'>
           Email
         </label>
         <input
@@ -54,7 +54,7 @@ const EditUserForm = async () => {
         />
       </div>
       <div>
-        <label className='block mb-2 text-sm font-bold text-gray-700' htmlFor='location'>
+        <label className='block mb-2 text-sm font-bold text-neutral-300' htmlFor='location'>
           Location
         </label>
         <input
@@ -67,12 +67,10 @@ const EditUserForm = async () => {
       <div>
         <button
           type='submit'
-          className='w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700'>
+          className='w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 transition-colors'>
           Save
         </button>
       </div>
     </form>
   );
-};
-
-export { EditUserForm };
+}
