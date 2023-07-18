@@ -4,6 +4,7 @@ import { getAllPosts } from '@/lib/prisma/posts';
 import Image from 'next/image';
 import { formatDistanceToNow } from 'date-fns';
 import { CreatePostButton } from './CreatePostButton';
+import { Video } from 'react-feather';
 
 const getStatusBadgeText = (status: string) => {
   switch (status) {
@@ -73,7 +74,7 @@ export const Posts = async () => {
               target='_blank'
               rel='noopener noreferrer'
               className='mt-1 text-md hover:underline transition-all'>
-              {post.content}
+              {post.content} <Video className='inline-block w-4 h-4 ml-1' />
             </a>
           </div>
           <div className='absolute top-0 right-0 mr-2 flex items-center rounded-lg px-2 py-1 mt-2 text-sm'>
