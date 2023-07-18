@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getAllPosts } from '@/lib/prisma/posts';
 import Image from 'next/image';
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNowStrict } from 'date-fns';
 import { CreatePostButton } from './CreatePostButton';
 import { Video } from 'react-feather';
 
@@ -56,14 +56,31 @@ export const Posts = async () => {
               height={112}
             />
           )}
-          <div className='px-4 py-1'>
-            <div className='flex items-center gap-2'>
-              <div className='tracking-wide text-sm text-gray-400 font-semibold'>
+          <div className='px-4 py-1 flex flex-col w-full'>
+            <div className='inline-flex flex-wrap items-center gap-x-2 w-full'>
+              <span className='tracking-wide text-sm text-gray-400 font-semibold'>
                 {post.user.name}
-              </div>
-              {post.user.location && <p className='text-gray-500 text-sm'>{post.user.location}</p>}
-              <div className='text-sm text-gray-500'>
-                {formatDistanceToNow(new Date(post.createdAt))} ago
+              </span>
+              {post.user.location && (
+                <span className='text-gray-500 text-sm'>{post.user.location}</span>
+              )}
+              <span className='text-sm text-gray-500'>
+                {formatDistanceToNowStrict(new Date(post.createdAt), {
+                  addSuffix: true,
+                  roundingMethod: 'floor',
+                })}
+              </span>
+              <div className='flex items-center rounded-lg text-sm md:ml-auto'>
+                <div
+                  className={`rounded-full w-2 h-2 ${
+                    post.status === 'WORKING_ON'
+                      ? 'bg-yellow-400'
+                      : post.status === 'STUCK'
+                      ? 'bg-red-400'
+                      : 'bg-gray-400'
+                  } mr-1`}
+                />
+                <span className='text-xs ml-auto'>{getStatusBadgeText(post.status)}</span>
               </div>
             </div>
 
@@ -74,18 +91,6 @@ export const Posts = async () => {
               className='mt-1 text-md hover:underline transition-all'>
               {post.content} <Video className='inline-block w-4 h-4 ml-1' />
             </a>
-          </div>
-          <div className='absolute top-0 right-0 mr-2 flex items-center rounded-lg px-2 py-1 mt-2 text-sm'>
-            <div
-              className={`rounded-full w-2 h-2 ${
-                post.status === 'WORKING_ON'
-                  ? 'bg-yellow-400'
-                  : post.status === 'STUCK'
-                  ? 'bg-red-400'
-                  : 'bg-gray-400'
-              } mr-1`}
-            />
-            <div className='text-xs'>{getStatusBadgeText(post.status)}</div>
           </div>
         </div>
       ))}
