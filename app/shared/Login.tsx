@@ -1,7 +1,7 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { GoogleIcon } from './assets/svg/Google';
+import { GoogleIcon } from '../assets/svg/Google';
 
 export default function Login() {
   return (

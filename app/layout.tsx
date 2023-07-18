@@ -3,12 +3,8 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import { authOptions } from '../pages/api/auth/[...nextauth]';
 import AuthProvider from './SessionProvider';
-import dynamic from 'next/dynamic';
 import LayoutHeader from './LayoutHeader';
 import { getUser } from '@/lib/prisma/users';
-
-const Login = dynamic(() => import('./Login'));
-const Logout = dynamic(() => import('./Logout'));
 
 const inter = Inter({ subsets: ['latin'] });
 

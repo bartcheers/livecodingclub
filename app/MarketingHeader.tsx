@@ -1,9 +1,8 @@
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { CodeExample } from './CodeExample';
 import { CommandLine } from './assets/svg/CommandLine';
 import Bart from './assets/img/bart.png';
 import Image from 'next/image';
-import Login from './Login';
+import Login from './shared/Login';
 
 export function MarketingHeader() {
   return (
