@@ -7,7 +7,7 @@ import { Posts } from './Posts';
 
 export default function Home() {
   return (
-    <main>
+    <main className='bg-neutral-900'>
       <CreatePostForm />
       <Posts />
       <EditUserForm />
