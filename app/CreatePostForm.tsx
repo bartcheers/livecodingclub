@@ -1,7 +1,7 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
 import { createPostAction } from './_actions';
-import { CreatePostButton } from './post/CreatePostButton';
+import { SubmitButton } from './SubmitButton';
 
 export const CreatePostForm = async () => {
   const session = await getServerSession(authOptions);
@@ -36,7 +36,7 @@ export const CreatePostForm = async () => {
         </label>
         <textarea
           name='content'
-          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
+          className='w-full px-3 py-2 bg-neutral-800 border rounded shadow appearance-none border-neutral-700'
           required
           autoFocus
         />
@@ -46,11 +46,11 @@ export const CreatePostForm = async () => {
         </label>
         <input
           name='link'
-          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
+          className='w-full px-3 py-2 bg-neutral-800 border rounded shadow appearance-none border-neutral-700'
           required
         />
       </div>
-      <CreatePostButton />
+      <SubmitButton label='Post' />
     </form>
   );
 };

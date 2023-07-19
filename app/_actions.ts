@@ -1,6 +1,6 @@
 'use server';
 
-import { UpdateStatus } from '@prisma/client';
+import { Post, UpdateStatus } from '@prisma/client';
 import { updateUser } from '@/lib/prisma/users';
 import { createPost, updatePost, deletePost } from '@/lib/prisma/posts';
 import { revalidatePath } from 'next/cache';
@@ -44,16 +44,20 @@ export async function updatePostAction({
   content,
 }: {
   id: string;
-  status: UpdateStatus;
-  content: string;
+  status?: UpdateStatus;
+  content?: string;
 }) {
-  const updatedPost = await updatePost({ id, content, status });
+  const postUpdates: Partial<Post> = {};
+
+  if (status !== undefined) {
+    postUpdates.status = status;
+  }
+
+  if (content !== undefined) {
+    postUpdates.content = content;
+  }
+
+  const updatedPost = await updatePost({ ...postUpdates, id });
   revalidatePath('/');
   return updatedPost;
-}
-
-export async function deletePostAction(id: string) {
-  await deletePost(id);
-  revalidatePath('/');
-  return { id };
 }

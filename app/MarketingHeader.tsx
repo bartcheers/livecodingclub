@@ -65,6 +65,7 @@ export function MarketingHeader() {
               className='absolute left-2 top-2 w-40 rounded-xl rounded-bl-none border-2 border-white shadow-xl'
               src={Bart}
               alt='Bart'
+              priority
             />
           </div>
         </div>

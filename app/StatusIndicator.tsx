@@ -1,4 +1,7 @@
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { Post } from '@prisma/client';
+import { getServerSession } from 'next-auth';
+import StatusIndicatorDropdown from './StatusIndicatorDropdown';
 
 const getStatusBadgeText = (status: string) => {
   switch (status) {
@@ -15,7 +18,11 @@ const getStatusBadgeText = (status: string) => {
   }
 };
 
-export default function StatusIndicator({ post }: { post: Post }) {
+export default async function StatusIndicator({ post }: { post: Post }) {
+  const session = await getServerSession(authOptions);
+
+  if (session?.user.id === post.userId) return <StatusIndicatorDropdown post={post} />;
+
   return (
     <div className='flex items-center rounded-lg text-sm md:ml-auto'>
       <div

@@ -35,17 +35,25 @@ export async function updatePost({
   content,
 }: {
   id: string;
-  status: UpdateStatus;
-  content: string;
+  status?: UpdateStatus;
+  content?: string;
 }) {
   try {
+    const data: { status?: UpdateStatus; content?: string } = {};
+
+    if (status !== undefined) {
+      data.status = status;
+    }
+
+    if (content !== undefined) {
+      data.content = content;
+    }
+
     const post = await prisma.post.update({
       where: { id },
-      data: {
-        status,
-        content,
-      },
+      data,
     });
+
     return { post };
   } catch (error) {
     return { error };

@@ -15,7 +15,6 @@ const navigation = [
 ];
 const authenticatedUserNavigation = [
   { name: 'Your Profile', href: '/profile' },
-  // { name: 'Settings', href: '/settings' },
   { name: 'Sign out', href: '/sign-out' },
 ];
 
@@ -70,6 +69,7 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                                   width={32}
                                   height={32}
                                   alt=''
+                                  priority
                                 />
                               ) : (
                                 <UserIcon className='h-8 w-8 p-1 rounded-full' />

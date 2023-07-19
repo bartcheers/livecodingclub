@@ -23,6 +23,7 @@ export const Posts = async () => {
               alt='User avatar'
               width={112}
               height={112}
+              priority
             />
           )}
           <CreatePostButton />
@@ -40,9 +41,10 @@ export const Posts = async () => {
               alt='User avatar'
               width={112}
               height={112}
+              priority
             />
           )}
-          <div className='px-4 py-1 flex flex-col w-full'>
+          <div className='pl-4 py-1 flex flex-col w-full'>
             <div className='inline-flex flex-wrap items-center gap-x-2 w-full'>
               <span className='tracking-wide text-sm text-gray-400 font-semibold'>
                 {post.user.name}
