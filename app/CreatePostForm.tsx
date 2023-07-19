@@ -36,7 +36,7 @@ export const CreatePostForm = async () => {
         </label>
         <textarea
           name='content'
-          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
           required
           autoFocus
         />
@@ -46,7 +46,7 @@ export const CreatePostForm = async () => {
         </label>
         <input
           name='link'
-          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
           required
         />
       </div>

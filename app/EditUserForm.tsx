@@ -39,7 +39,7 @@ export default async function EditUserForm() {
           type='text'
           name='name'
           defaultValue={name || undefined}
-          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
         />
       </div>
       <div>
@@ -50,7 +50,7 @@ export default async function EditUserForm() {
           type='email'
           name='email'
           defaultValue={email || undefined}
-          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
         />
       </div>
       <div>
@@ -61,13 +61,13 @@ export default async function EditUserForm() {
           type='text'
           name='location'
           defaultValue={location || undefined}
-          className='w-full px-3 py-2 text-black border rounded shadow appearance-none'
+          className='w-full px-3 py-2 bg-neutral-800/25 border rounded shadow appearance-none border-neutral-800'
         />
       </div>
       <div>
         <button
           type='submit'
-          className='w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 transition-colors'>
+          className='w-full px-4 py-2 font-bold text-neutral-800 bg-turquoise-500 rounded hover:bg-turquiose-700 transition-colors'>
           Save
         </button>
       </div>

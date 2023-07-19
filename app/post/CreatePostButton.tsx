@@ -8,7 +8,7 @@ export const CreatePostButton = () => {
   return (
     <button
       type='submit'
-      className='w-full px-4 py-2 font-bold text-white bg-emerald-500 rounded hover:bg-emerald-800 disabled:bg-neutral-400 transition-colors'
+      className='w-full px-4 py-2 font-bold text-neutral-800 bg-turquoise-500 rounded hover:bg-turquoise-800 disabled:bg-neutral-400 transition-colors'
       disabled={pending}>
       {pending ? 'Posting...' : 'Post'}
     </button>

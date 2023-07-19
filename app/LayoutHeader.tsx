@@ -5,7 +5,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { X, Menu as MenuIcon, GitPullRequest, User as UserIcon } from 'react-feather';
 import Image from 'next/image';
-import { UserCircleIcon } from '@heroicons/react/20/solid';
 import type { User } from '@prisma/client';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
@@ -16,7 +15,7 @@ const navigation = [
 ];
 const authenticatedUserNavigation = [
   { name: 'Your Profile', href: '/profile' },
-  { name: 'Settings', href: '/settings' },
+  // { name: 'Settings', href: '/settings' },
   { name: 'Sign out', href: '/sign-out' },
 ];
 
@@ -73,7 +72,7 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                                   alt=''
                                 />
                               ) : (
-                                <UserIcon className='h-8 w-8 rounded-full' />
+                                <UserIcon className='h-8 w-8 p-1 rounded-full' />
                               )}
                             </Menu.Button>
                           </div>
@@ -153,7 +152,7 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                           alt=''
                         />
                       ) : (
-                        <UserCircleIcon />
+                        <UserIcon />
                       )}
                     </div>
                     <div className='ml-3'>
