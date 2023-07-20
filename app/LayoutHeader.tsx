@@ -3,7 +3,7 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
-import { X, Menu as MenuIcon, GitPullRequest, User as UserIcon } from 'react-feather';
+import { X, Menu as MenuIcon, User as UserIcon } from 'react-feather';
 import Image from 'next/image';
 import type { User } from '@prisma/client';
 import Link from 'next/link';
@@ -28,8 +28,8 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                 <div className='border-b border-neutral-700'>
                   <div className='flex h-16 items-center justify-between px-4 sm:px-0'>
                     <div className='flex items-center'>
-                      <Link href='/' className='flex-shrink-0'>
-                        <GitPullRequest />
+                      <Link href='/' className='flex-shrink-0 text-xl font-black'>
+                        Live Coding Club
                       </Link>
                     </div>
                     <div className='hidden md:block'>
