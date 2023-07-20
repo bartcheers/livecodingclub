@@ -84,6 +84,22 @@ export async function getPostsByUser({ userId }: { userId: string }) {
   }
 }
 
+export async function getMostRecentPostByUser({ userId }: { userId: string }) {
+  try {
+    const post = await prisma.post.findFirst({
+      where: {
+        userId: userId,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+    return { post };
+  } catch (error) {
+    return { error };
+  }
+}
+
 export async function getAllPosts(limit: number) {
   try {
     const posts = await prisma.post.findMany({

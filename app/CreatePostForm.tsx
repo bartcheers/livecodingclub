@@ -2,6 +2,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
 import { createPostAction } from './_actions';
 import { SubmitButton } from './SubmitButton';
+import { getMostRecentPostByUser } from '@/lib/prisma/posts';
 
 export const CreatePostForm = async () => {
   const session = await getServerSession(authOptions);
@@ -9,6 +10,8 @@ export const CreatePostForm = async () => {
   if (!session?.user.id) {
     return null;
   }
+
+  const { post } = await getMostRecentPostByUser({ userId: session?.user.id });
 
   const handleSubmit = async (data: FormData) => {
     'use server';
@@ -48,6 +51,7 @@ export const CreatePostForm = async () => {
           name='link'
           className='w-full px-3 py-2 bg-neutral-800 border rounded shadow appearance-none border-neutral-700'
           required
+          defaultValue={post?.link || undefined}
         />
       </div>
       <SubmitButton label='Post' />
