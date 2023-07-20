@@ -28,7 +28,18 @@ to make. If you're not sure what to work on, check out the
 
 ## Getting Started
 
-First, run the development server:
+Create a database, eg a postgres database at Supabase. Create a `.env` file in the root of the
+project with the following contents:
+
+```bash
+DATABASE_URL="[YOUR DATABASE URL]"
+```
+
+Then, run the following commands to create the database and run the migrations:
+
+````bash
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -36,7 +47,7 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
