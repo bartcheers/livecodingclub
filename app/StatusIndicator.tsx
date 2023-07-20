@@ -31,6 +31,8 @@ export default async function StatusIndicator({ post }: { post: Post }) {
             ? 'bg-yellow-400'
             : post.status === 'STUCK'
             ? 'bg-red-400'
+            : post.status === 'COMPLETED'
+            ? 'bg-turquoise-900'
             : 'bg-gray-400'
         } mr-1`}
       />
