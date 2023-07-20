@@ -2,6 +2,8 @@ import { getUser } from '@/lib/prisma/users';
 import { updateUserAction } from './_actions';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { SubmitButton } from './SubmitButton';
+import { redirect } from 'next/navigation';
 
 export default async function EditUserForm() {
   const session = await getServerSession(authOptions);
@@ -27,6 +29,7 @@ export default async function EditUserForm() {
     if (!newLocation || typeof newLocation !== 'string') return;
 
     await updateUserAction({ id: user.id, name: newName, email: newEmail, location: newLocation });
+    redirect('/');
   };
 
   return (
@@ -65,11 +68,7 @@ export default async function EditUserForm() {
         />
       </div>
       <div>
-        <button
-          type='submit'
-          className='w-full px-4 py-2 font-bold text-neutral-800 bg-turquoise-500 rounded hover:bg-turquiose-700 transition-colors'>
-          Save
-        </button>
+        <SubmitButton label='Save' />
       </div>
     </form>
   );
