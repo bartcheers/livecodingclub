@@ -1,7 +1,7 @@
 # Live coding club
 
-Welcome! This is a repository for the Live Coding Club website, which can be found
-[here](https://livecodingclub.com). I started the project in an attempt to:
+Welcome! This is a repository for the [Live Coding Club website](https://livecodingclub.com). I
+started the project to:
 
 - Explore Next.js 13's new app directory + server actions
 - Create a low-pressure environment to get better at pair programming
