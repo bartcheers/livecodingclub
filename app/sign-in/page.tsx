@@ -6,5 +6,11 @@ import Logout from '../sign-out/Logout';
 
 export default function SignOut() {
   const { data: session } = useSession();
-  return session ? <Logout /> : <Login />;
+  return session ? (
+    <Logout />
+  ) : (
+    <div className='mt-8 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+      <Login />
+    </div>
+  );
 }

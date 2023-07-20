@@ -49,7 +49,7 @@ export function Features() {
           <p className='mt-2 text-2xl font-bold tracking-tight text-white'>👋🏻 Hi and Welcome!</p>
           <p className='mt-6 text-md leading-8 text-gray-300'>
             Pair programming has taught me so much in such a short time. Now, I want to share that
-            experience with you. Join our fun and relaxed environment where developers come together
+            experience with you. Join a fun and relaxed environment where developers come together
             to learn and level up their coding skills.
             <br />
           </p>
