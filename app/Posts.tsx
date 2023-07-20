@@ -13,9 +13,9 @@ export const Posts = async () => {
   const { posts } = await getAllPosts(20);
 
   return (
-    <div className='text-white min-h-screen rounded-2xl p-4'>
+    <div className='text-white min-h-screen rounded-2xl p-4 md:pl-0'>
       {session?.user.id && (
-        <div className='flex w-full max-w-2xl mx-auto rounded-xl overflow-hidden mb-4 p-2  relative'>
+        <div className='flex w-full mx-auto rounded-xl overflow-hidden mb-4 p-2 md:pl-0  relative'>
           {session?.user.image && (
             <Image
               className='h-14 rounded-lg overflow-hidden object-cover sm:h-full w-14 aspect-square flex-shrink-0'
@@ -33,7 +33,7 @@ export const Posts = async () => {
       {posts?.map((post) => (
         <div
           key={post.id}
-          className='flex w-full max-w-2xl mx-auto bg-neutral-900 rounded-xl overflow-hidden mb-4 p-2 relative'>
+          className='flex w-full mx-auto bg-neutral-900 rounded-xl overflow-hidden mb-4 p-2 md:pl-0 relative'>
           {post.user.image && (
             <Image
               className='h-14 rounded-lg overflow-hidden object-cover sm:h-full w-14 aspect-square flex-shrink-0'
