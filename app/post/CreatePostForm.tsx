@@ -1,7 +1,7 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
-import { createPostAction } from './_actions';
-import { SubmitButton } from './SubmitButton';
+import { createPostAction } from '../_actions';
+import { SubmitButton } from '../shared/SubmitButton';
 import { getMostRecentPostByUser } from '@/lib/prisma/posts';
 
 export const CreatePostForm = async () => {

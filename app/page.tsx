@@ -1,5 +1,5 @@
-import { Posts } from './Posts';
-import { Features } from './Features';
+import { Posts } from './home/Posts';
+import { Features } from './home/Features';
 
 export default async function Home() {
   return (

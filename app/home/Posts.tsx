@@ -6,7 +6,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import { CreatePostButton } from './CreatePostButton';
 import { Video } from 'react-feather';
 import StatusIndicator from './StatusIndicator';
-import Login from './shared/Login';
+import Login from '../shared/Login';
 
 export const Posts = async () => {
   const session = await getServerSession(authOptions);

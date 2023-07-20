@@ -1,8 +1,8 @@
 import { getUser } from '@/lib/prisma/users';
-import { updateUserAction } from './_actions';
+import { updateUserAction } from '../_actions';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { SubmitButton } from './SubmitButton';
+import { SubmitButton } from '../shared/SubmitButton';
 import { redirect } from 'next/navigation';
 
 export default async function EditUserForm() {

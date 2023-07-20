@@ -1,7 +1,7 @@
 import { Post, UpdateStatus } from '@prisma/client';
-import { updatePostAction } from './_actions';
+import { updatePostAction } from '../_actions';
 import { z } from 'zod';
-import { SubmitButton } from './SubmitButton';
+import { SubmitButton } from '../shared/SubmitButton';
 
 const UpdatesStatusSchema = z.nativeEnum(UpdateStatus);
 
