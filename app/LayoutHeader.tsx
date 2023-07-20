@@ -9,10 +9,6 @@ import type { User } from '@prisma/client';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 
-const navigation = [
-  { name: 'Live', href: '/', current: true },
-  { name: 'About', href: '/about', current: false },
-];
 const authenticatedUserNavigation = [
   { name: 'Your Profile', href: '/profile' },
   { name: 'Sign out', href: '/sign-out' },
@@ -35,25 +31,6 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                       <Link href='/' className='flex-shrink-0'>
                         <GitPullRequest />
                       </Link>
-                      <div className='hidden md:block'>
-                        <div className='ml-10 flex items-baseline space-x-4'>
-                          {session &&
-                            navigation.map((item) => (
-                              <a
-                                key={item.name}
-                                href={item.href}
-                                className={clsx(
-                                  item.current
-                                    ? 'bg-neutral-900 text-white'
-                                    : 'text-neutral-300 hover:bg-neutral-700 hover:text-white',
-                                  'rounded-md px-3 py-2 text-sm font-medium',
-                                )}
-                                aria-current={item.current ? 'page' : undefined}>
-                                {item.name}
-                              </a>
-                            ))}
-                        </div>
-                      </div>
                     </div>
                     <div className='hidden md:block'>
                       <div className='ml-4 flex items-center md:ml-6'>
@@ -123,23 +100,6 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
               </div>
 
               <Disclosure.Panel className='border-b border-neutral-700 md:hidden'>
-                <div className='space-y-1 px-2 py-3 sm:px-3'>
-                  {navigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as='a'
-                      href={item.href}
-                      className={clsx(
-                        item.current
-                          ? 'bg-neutral-900 text-white'
-                          : 'text-neutral-300 hover:bg-neutral-700 hover:text-white',
-                        'block rounded-md px-3 py-2 text-base font-medium',
-                      )}
-                      aria-current={item.current ? 'page' : undefined}>
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
-                </div>
                 <div className='border-t border-neutral-700 pb-3 pt-4'>
                   <div className='flex items-center px-5'>
                     <div className='flex-shrink-0'>
