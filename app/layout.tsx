@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { getServerSession } from 'next-auth';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -23,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <AuthProvider session={session}>
           <LayoutHeader user={user} />
           {children}
+          <Analytics />
         </AuthProvider>
       </body>
     </html>
