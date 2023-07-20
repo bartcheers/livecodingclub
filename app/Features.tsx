@@ -56,9 +56,9 @@ export function Features() {
           <a
             href='https://twitter.com/BartProost'
             target='_blank'
-            className='block mt-4 hover:underline underline-offset-2 group'>
+            className='block mt-4 hover:underline underline-offset-2 group decoration-turquoise-900'>
             Bart Proost
-            <Twitter className='inline h-4 w-4 ml-2 transition-all group-hover:-mt-2' />
+            <Twitter className='inline h-4 w-4 ml-2 transition-all group-hover:-mt-2 group-hover:ml-3 group-hover:text-turquoise-900' />
           </a>
         </div>
         <dl className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 lg:mx-0 lg:max-w-none lg:gap-x-16'>
