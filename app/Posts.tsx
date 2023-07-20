@@ -6,6 +6,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import { CreatePostButton } from './CreatePostButton';
 import { Video } from 'react-feather';
 import StatusIndicator from './StatusIndicator';
+import Login from './shared/Login';
 
 export const Posts = async () => {
   const session = await getServerSession(authOptions);
@@ -14,8 +15,8 @@ export const Posts = async () => {
 
   return (
     <div className='text-white min-h-screen rounded-2xl p-4 md:pl-0'>
-      {session?.user.id && (
-        <div className='flex w-full mx-auto rounded-xl overflow-hidden mb-4 p-2 md:pl-0  relative'>
+      {session?.user.id ? (
+        <div className='flex w-full mx-auto rounded-xl overflow-hidden mb-4 p-2 md:pl-0 relative'>
           {session?.user.image && (
             <Image
               className='h-14 rounded-lg overflow-hidden object-cover sm:h-full w-14 aspect-square flex-shrink-0'
@@ -28,6 +29,8 @@ export const Posts = async () => {
           )}
           <CreatePostButton />
         </div>
+      ) : (
+        <Login />
       )}
 
       {posts?.map((post) => (

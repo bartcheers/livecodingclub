@@ -6,7 +6,7 @@ import { GoogleIcon } from '../assets/svg/Google';
 export default function Login() {
   return (
     <button
-      className='flex items-center gap-2 text-black rounded-lg bg-white w-fit mt-8 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400'
+      className='w-full h-14 mb-5 flex justify-center items-center flex-1 border border-neutral-700 rounded-lg hover:bg-neutral-800 hover:border-neutral-800 transition-colors gap-2'
       onClick={() => signIn('google')}>
       <GoogleIcon />
       Sign in with Google
