@@ -17,8 +17,9 @@ Welcome! This is a repository for the Live Coding Club website, which can be fou
 ## Features
 
 This repo features the new Next.js app router & server actions. The result is a front to back
-typesafe app that can be deployed at once (no need for a separate API server). The app is deployed
-on Vercel, and uses Prisma to connect to a Postgres database.
+typesafe app with a 100/100 [pagespeed score](https://pagespeed.web.dev/) that can be deployed at
+once (no need for a separate API server). The app is deployed on Vercel, and uses Prisma to connect
+to a Postgres database.
 
 ## Contributing
 
@@ -53,16 +54,6 @@ file.
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to
 automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your
-feedback and contributions are welcome!
-
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the
@@ -71,3 +62,13 @@ from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
 details.
+
+## License
+
+MIT
+
+## Learn while you code
+
+Planning to work on or fork this project? Start a session on
+[Live Coding Club](https://www.livecodingclub.com) while you're at it. You get to learn while you
+code, and I get to learn from you. Win-win!
