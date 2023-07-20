@@ -1,11 +1,3 @@
-import {
-  CloudIcon,
-  UserCircleIcon,
-  BookOpenIcon,
-  LightBulbIcon,
-  ChatBubbleOvalLeftEllipsisIcon,
-  UserGroupIcon,
-} from '@heroicons/react/20/solid';
 import { BookOpen, CloudLightning, Feather, PieChart, Twitter, User, Users } from 'react-feather';
 
 const features = [
