@@ -29,20 +29,22 @@ to make. If you're not sure what to work on, check out the
 
 ## Getting Started
 
-Create a database, eg a postgres database at Supabase. Create a `.env` file in the root of the
-project with the following contents:
+First, create a database, eg a postgres database at Supabase. Create a `.env` file in the root of
+the project with the following contents:
 
 ```bash
 DATABASE_URL="[YOUR DATABASE URL]"
 ```
 
-Then, run the development server:
+Then, install packages:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+```
+
+Finally, run the development server:
+
+```bash
 pnpm dev
 ```
 
