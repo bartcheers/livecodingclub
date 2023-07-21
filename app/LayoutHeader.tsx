@@ -3,7 +3,7 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
-import { X, Menu as MenuIcon, User as UserIcon } from 'react-feather';
+import { X, Menu as MenuIcon, User as UserIcon, GitHub } from 'react-feather';
 import Image from 'next/image';
 import type { User } from '@prisma/client';
 import Link from 'next/link';
@@ -36,7 +36,14 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                       <div className='ml-4 flex items-center md:ml-6'>
                         {/* Profile dropdown */}
                         <Menu as='div' className='relative ml-3'>
-                          <div>
+                          <div className='flex items-center gap-2'>
+                            <Link
+                              href='https://github.com/bartcheers/livecodingclub'
+                              target='_blank'
+                              rel='noreferrer nofollower'
+                              className='w-8 h-8 rounded-full flex max-w-xs items-center justify-center bg-neutral-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800'>
+                              <GitHub className='h-5 w-5' />
+                            </Link>
                             <Menu.Button className='flex max-w-xs items-center rounded-full bg-neutral-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800'>
                               <span className='sr-only'>Open user menu</span>
                               {user?.image ? (
@@ -84,9 +91,16 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                         </Menu>
                       </div>
                     </div>
-                    <div className='-mr-2 flex md:hidden'>
+                    <div className='-mr-2 flex items-center gap-2 md:hidden'>
+                      <Link
+                        href='https://github.com/bartcheers/livecodingclub'
+                        target='_blank'
+                        rel='noreferrer nofollower'
+                        className='w-10 h-10 rounded-lg flex max-w-xs items-center justify-center bg-neutral-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800 text-neutral-400 hover:text-white transition-colors hover:bg-neutral-700'>
+                        <GitHub className='h-5 w-5' />
+                      </Link>
                       {/* Mobile menu button */}
-                      <Disclosure.Button className='inline-flex items-center justify-center rounded-md bg-neutral-800 p-2 text-neutral-400 hover:bg-neutral-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800'>
+                      <Disclosure.Button className='inline-flex items-center justify-center rounded-md bg-neutral-800 p-2 text-neutral-400 hover:bg-neutral-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800 transition-colors'>
                         <span className='sr-only'>Open main menu</span>
                         {open ? (
                           <X className='block h-6 w-6' aria-hidden='true' />
@@ -103,7 +117,7 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                 <div className='border-t border-neutral-700 pb-3 pt-4'>
                   <div className='flex items-center px-5'>
                     <div className='flex-shrink-0'>
-                      {user?.image ? (
+                      {user?.image && (
                         <Image
                           width={40}
                           height={40}
@@ -111,8 +125,6 @@ export default function LayoutHeader({ user }: { user?: User | null }) {
                           src={user.image}
                           alt=''
                         />
-                      ) : (
-                        <UserIcon />
                       )}
                     </div>
                     <div className='ml-3'>
